@@ -14,7 +14,7 @@ app.use(express.json());
 
 // --- MongoDB Connection ---
 // CORRECTED: The password has been inserted directly and the < > brackets are removed.
-const dbURI = 'mongodb+srv://shrey0031:ZZ289yA9liFky7fy@cluster0.bb50tb7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const dbURI = .env;
 
 // CORRECTED: The deprecated options have been removed to clean up the warnings.
 mongoose.connect(dbURI)
