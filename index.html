@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    
+    <!-- This script includes Tailwind CSS directly, so no installation is needed. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Your Name</a>
+            <ul class="flex items-center space-x-6">
+                <li><a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-300">About</a></li>
+                <li><a href="#portfolio" class="text-gray-600 hover:text-indigo-600 transition duration-300">Portfolio</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-300">Contact</a></li>
+                <li><a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gray-900 text-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    I'm a <span id="typing-text" class="text-indigo-400"></span><span class="border-r-2 border-indigo-400 animate-pulse"></span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                    I specialize in building modern, responsive, and user-friendly web applications. Welcome to my digital space.
+                </p>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3">
+                        <img src="https://placehold.co/400x400/E2E8F0/1f2937?text=Your+Photo" alt="Your Name" class="rounded-full shadow-lg mx-auto" />
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
+                        <p class="text-gray-600 mb-4">
+                            Hello! I'm [Your Name], a passionate Full Stack Developer. I have a strong interest in creating elegant and functional websites and applications.
+                        </p>
+                        <h4 class="text-xl font-semibold mt-8 mb-4">My Skills</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">HTML</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">JavaScript</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">React.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">Node.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">Tailwind CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">My Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Project 1 -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Project+One" alt="Project One Screenshot" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Project Title One</h3>
+                            <p class="text-gray-600 mb-4">A brief description of the project.</p>
+                            <a href="#" class="text-indigo-600 font-semibold hover:underline">View Project &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Add more projects here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <form id="contact-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition duration-300 w-full">Send Message</button>
+                        </div>
+                    </form>
+                    <p id="status-message" class="text-center mt-4 text-indigo-600 font-semibold"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-gray-500">&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for animations and form submission -->
+    <script>
+        // Typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const words = ["Full Stack Developer", "Web Designer", "Creative Coder"];
+            let i = 0;
+            let j = 0;
+            let currentWord = "";
+            let isDeleting = false;
+            const typingText = document.getElementById('typing-text');
+
+            function type() {
+                currentWord = words[i];
+                if (isDeleting) {
+                    typingText.textContent = currentWord.substring(0, j--);
+                } else {
+                    typingText.textContent = currentWord.substring(0, j++);
+                }
+
+                if (!isDeleting && j === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000);
+                } else if (isDeleting && j === 0) {
+                    isDeleting = false;
+                    i = (i + 1) % words.length;
+                    setTimeout(type, 500);
+                } else {
+                    let typeSpeed = isDeleting ? 50 : 150;
+                    setTimeout(type, typeSpeed);
+                }
+            }
+            type();
+
+            // Contact form submission
+            const form = document.getElementById('contact-form');
+            const statusMessage = document.getElementById('status-message');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                statusMessage.textContent = 'Sending...';
+
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    message: form.message.value
+                };
+
+                try {
+                    const response = await fetch('http://localhost:5000/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData),
+                    });
+
+                    if (response.ok) {
+                        statusMessage.textContent = 'Message sent successfully!';
+                        form.reset();
+                    } else {
+                        statusMessage.textContent = 'Failed to send message. Please try again.';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    statusMessage.textContent = 'An error occurred. Please try again.';
+                } finally {
+                    setTimeout(() => {
+                        statusMessage.textContent = '';
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+### How to Run Your Project Now
+
+Your setup is now much simpler:
+
+1.  **Run the Backend:** Open a terminal, `cd` into your `portfolio` (backend) folder, and run `node server.js`. (This step is the same and you have already done it successfully).
+
+2.  **Run the Frontend:** Open the `index.html` file (the one you just created) directly in your web browser (e.g., by double-clicking it).
+
+That's it. You no longer need `npm start` or any of the complicated frontend setup. Your styled website will appear, and it will be able to communicate with your running backend serv
