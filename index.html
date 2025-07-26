@@ -13,25 +13,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome for Icons (for social links) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Devicon for Tech Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
     <style>
-        body {
+        body, html {
             font-family: 'Inter', sans-serif;
+            /* Hides the default cursor */
+            cursor: none;
+        }
+
+        /* Custom CSS for reliable hover effects */
+        .project-card-image {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .project-card:hover .project-card-image {
+            transform: scale(1.05);
+        }
+
+        /* Keyframes for the pulsing border effect */
+        @keyframes pulse-border {
+          0%, 100% { box-shadow: 0 0 0px rgba(99, 102, 241, 0.4); }
+          50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.7); }
+        }
+
+        /* Custom cursor styles */
+        .custom-cursor {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #6366f1; /* Indigo color */
+            border-radius: 9999px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out;
+            transform-origin: center center;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="bg-gradient-to-b from-gray-900 to-black text-gray-300 antialiased">
+    
+    <!-- Floating Particle Background -->
+    <canvas id="particles-js" class="fixed top-0 left-0 w-full h-full -z-10 opacity-20"></canvas>
 
     <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <header class="bg-gray-900/80 backdrop-blur-md shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">Your Name</a>
+            <a href="#" class="text-2xl font-bold text-white">Your Name</a>
             <ul class="flex items-center space-x-6">
-                <li><a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-300">About</a></li>
-                <li><a href="#portfolio" class="text-gray-600 hover:text-indigo-600 transition duration-300">Portfolio</a></li>
-                <li><a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-300">Contact</a></li>
+                <li><a href="#about" class="text-gray-300 hover:text-indigo-400 transition duration-300">About</a></li>
+                <li><a href="#portfolio" class="text-gray-300 hover:text-indigo-400 transition duration-300">Portfolio</a></li>
+                <li><a href="#contact" class="text-gray-300 hover:text-indigo-400 transition duration-300">Contact</a></li>
                 <li><a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Resume</a></li>
             </ul>
         </nav>
@@ -40,9 +80,9 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="bg-gray-900 text-white py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+        <section class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center" data-aos="zoom-in" data-aos-duration="1000">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white">
                     I'm a <span id="typing-text" class="text-indigo-400"></span><span class="border-r-2 border-indigo-400 animate-pulse"></span>
                 </h1>
                 <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
@@ -52,27 +92,27 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="py-20 bg-gray-50">
+        <section id="about" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">About Me</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12" data-aos="fade-up">About Me</h2>
                 <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3">
-                        <img src="https://placehold.co/400x400/E2E8F0/1f2937?text=Your+Photo" alt="Your Name" class="rounded-full shadow-lg mx-auto" />
+                    <div class="md:w-1/3" data-aos="fade-right" data-aos-delay="200">
+                        <img src="https://placehold.co/400x400/1f2937/E2E8F0?text=Your+Photo" alt="Your Name" class="rounded-full shadow-lg mx-auto" />
                     </div>
-                    <div class="md:w-2/3">
-                        <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
-                        <p class="text-gray-600 mb-4">
-                            Hello! I'm [Your Name], a passionate Full Stack Developer. I have a strong interest in creating elegant and functional websites and applications.
+                    <div class="md:w-2/3" data-aos="fade-left" data-aos-delay="400">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">Who I Am</h3>
+                        <p class="text-gray-400 mb-4">
+                            Hello! I'm Shreyansh Yadav, a passionate Full Stack Developer. I have a strong interest in creating elegant and functional websites and applications.
                         </p>
-                        <h4 class="text-xl font-semibold mt-8 mb-4">My Skills</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">HTML</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">CSS</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">JavaScript</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">React.js</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">Node.js</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">Tailwind CSS</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-4 py-2 rounded-full">MongoDB</span>
+                        <h4 class="text-xl font-semibold mt-8 mb-4 text-white">My Skills</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-python-plain colored mr-2"></i>Python</span>
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-django-plain colored mr-2"></i>Django</span>
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-html5-plain colored mr-2"></i>HTML</span>
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-css3-plain colored mr-2"></i>CSS</span>
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-tailwindcss-plain colored mr-2"></i>Tailwind CSS</span>
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-nodejs-plain colored mr-2"></i>Node.js</span>
+                            <span class="flex items-center bg-gray-700 text-indigo-300 text-sm font-medium px-4 py-2 rounded-full"><i class="devicon-mysql-plain colored mr-2"></i>SQL</span>
                         </div>
                     </div>
                 </div>
@@ -80,55 +120,72 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="py-20 bg-white">
+        <section id="portfolio" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">My Portfolio</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12" data-aos="fade-up">My Portfolio</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- Project 1 -->
-                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Project+One" alt="Project One Screenshot" class="w-full h-56 object-cover">
+                    <div class="project-card bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] rounded-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:animate-[pulse-border_2s_ease-in-out_infinite]" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=Project+One" alt="Project One Screenshot" class="project-card-image w-full h-56 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Project Title One</h3>
-                            <p class="text-gray-600 mb-4">A brief description of the project.</p>
-                            <a href="#" class="text-indigo-600 font-semibold hover:underline">View Project &rarr;</a>
+                            <h3 class="text-xl font-bold mb-2 text-white">Project Title One</h3>
+                            <p class="text-gray-400 mb-4">A brief description of the project.</p>
+                            <a href="#" class="text-indigo-400 font-semibold hover:underline">View Project &rarr;</a>
                         </div>
                     </div>
-                    <!-- Add more projects here -->
+                    <!-- Project 2 -->
+                     <div class="project-card bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] rounded-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:animate-[pulse-border_2s_ease-in-out_infinite]" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=Project+Two" alt="Project Two Screenshot" class="project-card-image w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Project Title Two</h3>
+                            <p class="text-gray-400 mb-4">A brief description of the project.</p>
+                            <a href="#" class="text-indigo-400 font-semibold hover:underline">View Project &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                     <div class="project-card bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] rounded-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:animate-[pulse-border_2s_ease-in-out_infinite]" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=Project+Three" alt="Project Three Screenshot" class="project-card-image w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Project Title Three</h3>
+                            <p class="text-gray-400 mb-4">A brief description of the project.</p>
+                            <a href="#" class="text-indigo-400 font-semibold hover:underline">View Project &rarr;</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-50">
+        <section id="contact" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
-                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12" data-aos="fade-up">Get In Touch</h2>
+                <div class="max-w-2xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] p-8 rounded-lg" data-aos="zoom-in-up">
                     <form id="contact-form">
                         <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
+                            <label for="name" class="block text-gray-300 font-semibold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
                         </div>
                         <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
+                            <label for="email" class="block text-gray-300 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
                         </div>
                         <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                            <label for="message" class="block text-gray-300 font-semibold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition duration-300 w-full">Send Message</button>
                         </div>
                     </form>
-                    <p id="status-message" class="text-center mt-4 text-indigo-600 font-semibold"></p>
+                    <p id="status-message" class="text-center mt-4 text-indigo-400 font-semibold"></p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-10">
-        <div class="container mx-auto px-6 text-center">
+    <footer class="bg-black text-white py-10">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
             <div class="flex justify-center space-x-6 mb-4">
                 <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl"><i class="fab fa-github"></i></a>
                 <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
@@ -138,10 +195,48 @@
         </div>
     </footer>
 
+    <!-- Custom Cursor Element -->
+    <div class="custom-cursor" id="cursor-dot"></div>
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <!-- JavaScript for animations and form submission -->
     <script>
-        // Typing effect
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                once: true, // Whether animation should happen only once - while scrolling down
+                duration: 800, // values from 0 to 3000, with step 50ms
+            });
+
+            // Initialize Particles.js
+            particlesJS("particles-js", {
+              "particles": {
+                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 0.3, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+              },
+              "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
+              "retina_detect": true
+            });
+
+            // Custom Cursor Logic
+            const cursor = document.getElementById('cursor-dot');
+            if (cursor) {
+                window.addEventListener('mousemove', e => {
+                    cursor.style.transform = `translate3d(${e.clientX - 6}px, ${e.clientY - 6}px, 0)`;
+                });
+            }
+
+            // Typing effect
             const words = ["Full Stack Developer", "Web Designer", "Creative Coder"];
             let i = 0;
             let j = 0;
@@ -150,6 +245,7 @@
             const typingText = document.getElementById('typing-text');
 
             function type() {
+                if (!typingText) return;
                 currentWord = words[i];
                 if (isDeleting) {
                     typingText.textContent = currentWord.substring(0, j--);
@@ -175,43 +271,44 @@
             const form = document.getElementById('contact-form');
             const statusMessage = document.getElementById('status-message');
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                statusMessage.textContent = 'Sending...';
+            if (form && statusMessage) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    statusMessage.textContent = 'Sending...';
 
-                const formData = {
-                    name: form.name.value,
-                    email: form.email.value,
-                    message: form.message.value
-                };
+                    const formData = {
+                        name: form.name.value,
+                        email: form.email.value,
+                        message: form.message.value
+                    };
 
-                try {
-                    const response = await fetch('http://localhost:5000/api/contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formData),
-                    });
+                    try {
+                        // IMPORTANT: Make sure your backend server is running on localhost:5000
+                        const response = await fetch('http://localhost:5000/api/contact', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData),
+                        });
 
-                    if (response.ok) {
-                        statusMessage.textContent = 'Message sent successfully!';
-                        form.reset();
-                    } else {
-                        statusMessage.textContent = 'Failed to send message. Please try again.';
+                        if (response.ok) {
+                            statusMessage.textContent = 'Message sent successfully!';
+                            form.reset();
+                        } else {
+                            statusMessage.textContent = 'Failed to send message. Please try again.';
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        statusMessage.textContent = 'An error occurred. Please try again.';
+                    } finally {
+                        setTimeout(() => {
+                            statusMessage.textContent = '';
+                        }, 5000);
                     }
-                } catch (error) {
-                    console.error('Error:', error);
-                    statusMessage.textContent = 'An error occurred. Please try again.';
-                } finally {
-                    setTimeout(() => {
-                        statusMessage.textContent = '';
-                    }, 5000);
-                }
-            });
+                });
+            }
         });
     </script>
 </body>
 </html>
-```
-
